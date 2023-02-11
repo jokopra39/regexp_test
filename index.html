@@ -65,7 +65,7 @@
                 let cleanString = getReg.replace(/[/]/g, "");
                 let reg = new RegExp(cleanString, getMod);
                 let result = getInp.match(reg);
-                $("#weather-temp").html(result);
+                $("#weather-temp").html(JSON.stringify(result));
             });
         });
     </script>
