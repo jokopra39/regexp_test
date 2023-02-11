@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!doctype html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <label class="block w-[60%] p-5 mt-5">
+        <div class="flex gap-3">
+            <div>
+                <span class="after:content-['*'] after:ml-0.5 after:text-red-500
+                block text-sm font-medium text-slate-700">
+                    Regexp : </span>
+                </span>
+                <input type="text" rows="3" cols="100" id="get-regexp" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300
+                placeholder-slate-400 focus:outline-none focus:border-sky-500
+                focus:ring-sky-500 block rounded-md sm:text-sm
+                focus:ring-1" placeholder="" />
+            </div>
+            <div>
+                <span class="after:content-['*'] after:ml-0.5 after:text-red-500
+                block text-sm font-medium text-slate-700">
+                    Modifiers : </span>
+                </span>
+                <input type="text" rows="3" cols="100" id="get-mod" class="w-[100px] mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300
+                placeholder-slate-400 focus:outline-none focus:border-sky-500
+                focus:ring-sky-500 block rounded-md sm:text-sm
+                focus:ring-1" placeholder="" />
+            </div>
+        </div>
+        <span class="after:ml-0.5 after:text-red-500
+        block text-sm font-medium text-slate-700">
+            Input : </span>
+        </span>
+        <textarea type="text" rows="3" cols="100" id="get-input" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300
+                placeholder-slate-400 focus:outline-none focus:border-sky-500
+                focus:ring-sky-500 block rounded-md sm:text-sm
+                focus:ring-1" placeholder="">Is this all there is?</textarea>
+    </label>
+    <div>
+        <button class="save rounded-lg bg-emerald-600 ml-5 px-9 py-2
+                text-stone-200 disabled:bg-slate-50 disabled:text-slate-500
+                disabled:border-slate-200">Test</button>
+    </div>
+    <div class="p-2 ml-3 mt- text-red-500">Result :</div>
+
+    <pre id="weather-temp"
+        class="ml-5 text-blue-600 text-lg w-[50%] rounded-md border-lime-500 border p-4 pb-6"> - </pre>
+    <script>
+        $(document).ready(function () {
+            let pattern = /[h]/;  //=>  /[h]/g
+            let mod = "g"
+            $("#get-regexp").val(pattern)
+            $("#get-mod").val(mod)
+            $("#reg").html(pattern);
+            $(".save").click(function () {
+                let getReg = $("#get-regexp").val();
+                let getInp = $("#get-input").val();
+                let getMod = $("#get-mod").val()
+                let cleanString = getReg.replace(/[/]/g, "");
+                let reg = new RegExp(cleanString, getMod);
+                let result = getInp.match(reg);
+                $("#weather-temp").html(result);
+            });
+        });
+    </script>
+</body>
+
+</html>
