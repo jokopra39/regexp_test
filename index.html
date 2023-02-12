@@ -40,7 +40,7 @@
         <textarea type="text" rows="3" cols="100" id="get-input" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300
                 placeholder-slate-400 focus:outline-none focus:border-sky-500
                 focus:ring-sky-500 block rounded-md sm:text-sm
-                focus:ring-1" placeholder="">Is this all there is?</textarea>
+                focus:ring-1" placeholder="">joko prayitno: 36 th: wajaklor :tina :24 thn :banda aceh</textarea>
     </label>
     <div>
         <button class="save rounded-lg bg-emerald-600 ml-5 px-9 py-2
@@ -49,11 +49,11 @@
     </div>
     <div class="p-2 ml-3 mt- text-red-500">Result :</div>
 
-    <pre id="weather-temp"
-        class="ml-5 text-blue-600 text-lg w-[50%] rounded-md border-lime-500 border p-4 pb-6"> - </pre>
+    <div id="weather-temp"
+        class="ml-5 tracking-wider font-mono hover:font-sans text-blue-600 text-lg w-[50%] rounded-md border-lime-500 border p-4 pb-6"> - </div>
     <script>
         $(document).ready(function () {
-            let pattern = /[h]/;  //=>  /[h]/g
+            let pattern = /[^:]*/;  //=>  /[h]/g
             let mod = "g"
             $("#get-regexp").val(pattern)
             $("#get-mod").val(mod)
